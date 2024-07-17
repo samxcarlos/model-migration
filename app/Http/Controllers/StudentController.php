@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Student;
 use Illuminate\Http\Request;
 
 class StudentController extends Controller
@@ -11,7 +11,20 @@ class StudentController extends Controller
      */
     public function index()
     {
-        //
+        //return Student::all();
+        //return Student::where('province', 'Oklahoma')->get();
+        //return Student::where('province', 'Oklahoma')
+            //->orwhere('fname', 'Florine')
+            //->orwhere('lname', 'Blick')
+            //->get();
+        //return Student::where('fname','like', '%t%')->get();
+        //return Student::orderBy('fname')->get();
+        //return Student::orderBy('fname', 'desc')->get();
+        //return Student ::limit(7)->get();
+        //return Student::wherein('id', [1,3,5,7,9,11])->get(); 
+        //return Student::wherenotin('id', [1,3,5,7,9,11])->get();
+        return Student::where('province', 'Arizona')->first();
+        
     }
 
     /**
@@ -35,7 +48,12 @@ class StudentController extends Controller
      */
     public function show(string $id)
     {
-        //
+        //return Student::find($id);
+        //$student =Student::find($id);
+            //return $student->fname;
+        $student =Student::find($id);
+            return $student->fullname;
+
     }
 
     /**

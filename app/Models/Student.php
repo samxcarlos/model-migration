@@ -23,4 +23,9 @@ class Student extends Model
     ];
 
     //protected $guarded = ['zip'];
+    protected $appends = ['fullname'];
+    public function getFullnameAttribute()
+    {
+        return $this->fname . ' ' . $this->lname;
+    }
 }
