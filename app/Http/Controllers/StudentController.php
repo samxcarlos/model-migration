@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Student;
 use Illuminate\Http\Request;
+use App\Models\SubjectGrade;
 
 class StudentController extends Controller
 {
@@ -23,7 +24,13 @@ class StudentController extends Controller
         //return Student ::limit(7)->get();
         //return Student::wherein('id', [1,3,5,7,9,11])->get(); 
         //return Student::wherenotin('id', [1,3,5,7,9,11])->get();
-        return Student::where('province', 'Arizona')->first();
+        //return Student::where('province', 'Arizona')->first();
+        //return Student::with('grades')->get();
+        return Student::with(['grades' => function($query)
+        {
+            return $query->where('grade', '>=', 90);
+        }])->get();
+        
         
     }
 
@@ -51,8 +58,8 @@ class StudentController extends Controller
         //return Student::find($id);
         //$student =Student::find($id);
             //return $student->fname;
-        $student =Student::find($id);
-            return $student->fullname;
+        //$student =Student::find($id);
+            //return $student->fullname;
 
     }
 
@@ -79,4 +86,5 @@ class StudentController extends Controller
     {
         //
     }
+    
 }
