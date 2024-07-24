@@ -53,6 +53,9 @@
                     <div class="form-group mb-3">
                         <button class="btn btn-primary">Save Changes</button>
                     </div>
+                    <div class="form-group mb-3">
+                        <a href="{{  url('students')}}" class="btn btn-primary">Student list</a>
+                    </div>
                 </form>
                 </div>
             </div>

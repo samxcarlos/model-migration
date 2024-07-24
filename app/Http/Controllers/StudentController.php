@@ -28,10 +28,10 @@ class StudentController extends Controller
         //return Student::wherenotin('id', [1,3,5,7,9,11])->get();
         //return Student::where('province', 'Arizona')->first();
         //return Student::with('grades')->get();
-        return Student::with(['grades' => function($query)
-        {
-            return $query->where('grade', '>=', 90);
-        }])->get();
+        // return Student::with(['grades' => function($query)
+        // {
+        //     return $query->where('grade', '>=', 90);
+        // }])->get();
         
         
     }
@@ -82,7 +82,7 @@ class StudentController extends Controller
      */
     public function edit(string $id)
     {
-        $data['students'] = Student::all();
+        $data['student'] = Student::find($id);
         return view('students.edit', $data);
     }
 

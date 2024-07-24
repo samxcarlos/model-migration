@@ -13,7 +13,7 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withMiddleware(function (Middleware $middleware) {
         $middleware->validateCsrfTokens(except:[
             'http://modelcarlos.test/students',
-            'http://modelcarlos.test/students/33',
+           // 'http://modelcarlos.test/students/33',
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
